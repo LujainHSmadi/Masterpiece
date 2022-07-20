@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@section('content')
    <!-- banner section start start-->
    <div class="inner-slider-wrapper float_left">
       <div class="container">
@@ -525,3 +525,4 @@
          </div>
       </div>
    </div>
+@endsection

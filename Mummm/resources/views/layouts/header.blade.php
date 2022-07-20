@@ -80,7 +80,15 @@
                                  <a class="nav-link" href="javascript:;">Account <span><i
                                           class="fas fa-chevron-down"></i></span></a>
                                  <ul class="dropdown-items menu-open3">
+                                    @if(Route::has('login'))
                                     <li><a href="/login">Login</a></li>
+                                    @endif
+                                    <li>
+                                       <form action="{{route('logout')}}" method="POST">
+                                          @csrf
+                                          <button type="submit">Logout</button>
+                                       </form>
+                                    </li>
                                     <li><a href="/sign-up">Sign-up</a></li>
                                     <li><a href="product-right-sidebar.html">Profile</a></li>
                                     

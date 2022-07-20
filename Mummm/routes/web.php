@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\KitchenController;
-use App\Http\Controllers\SignUpController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,12 +16,9 @@ use App\Http\Controllers\SignUpController;
 Route::get('/', function () {
     return view('pages.home');
 });
-Route::get('/login', function () {
-    return view('pages.login');
-});
-Route::get('/products', function () {
-    return view('pages.allProducts');
-});
 
-Route::resource('/kitchen', KitchenController::class);
-Route::resource('/sign-up', SignUpController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

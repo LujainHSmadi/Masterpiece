@@ -1,5 +1,7 @@
-{{-- @extends('layouts.master') --}}
-@include('layouts.header')
+@extends('layouts.master')
+@section('content')
+    
+
 
    <div class="inner-slider-wrapper float_left">
       <div class="container">
@@ -114,4 +116,4 @@
 {{--end teame section --}}
 
 {{-- end teams  --}}
-@include('layouts.footer')
+@endsection
