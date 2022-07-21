@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKitchensTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateKitchensTable extends Migration
      */
     public function up()
     {
-        Schema::create('kitchens', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('products', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
             $table->text('description');
             $table->text('image');
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->nullableTimestamps();
+            $table->foreign('kitchen_id')->references('id')->on('kitchens');
+            $table->nullableTimestamps;
         });
     }
 
@@ -30,6 +30,6 @@ class CreateKitchensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kitchens');
+        Schema::dropIfExists('products');
     }
 }

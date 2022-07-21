@@ -1,11 +1,30 @@
 
 <x-guest-layout>
+      <div id="preloader">
+      <div id="status">
+         <img src="images/loader.gif" id="preloader_image" alt="loader">
+      </div>
+   </div>
+   <div class="login_box_main_wrapper" id="login_height">
+      <div class="container">
+         <div class="login-logo">
+            <a href="index-2.html"> <img src="images/white-logo.png" alt="logo"> </a>
+         </div>
+         <div class="signin-wrapper">
+            <div class="row">
+               <div class="col-lg-6 col-md-12 col-12">
+                  <div class="left-side">
+                     <h4>Sign In</h4>
+                     <form>
+                        {{-- <div class="form-group field-icon row">
+                           <div class="col-md-12"> --}}
     <x-auth-card>
-        <x-slot name="logo">
+        {{-- <x-slot name="logo">
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
+         --}}
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -54,4 +73,28 @@
             </div>
         </form>
     </x-auth-card>
+    
+   <!-- Side Panel -->
+   <script src="js/jquery-3.6.0.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/jquery.magnific-popup.js"></script>
+   <script src="js/wow.js"></script>
+   <script src="js/owl.carousel.min.js"></script>
+   <script src="js/custom.js"></script>
+
+   <!-- custom js-->
+   <script>
+      const types = ['load', 'resize'];
+      types.forEach(function (type) {
+         window.addEventListener(type, () => {
+
+            let elem = document.getElementById('login_height');
+            let wh = window.innerHeight;
+
+            elem.style.height = wh + 'px';
+
+         });
+      });
+
+   </script>
 </x-guest-layout>
