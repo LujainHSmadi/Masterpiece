@@ -18,8 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->text('image');
-            $table->foreign('kitchen_id')->references('id')->on('kitchens');
-            $table->nullableTimestamps;
+            $table->integer('kitchen_id');
+            $table->nullableTimestamps();
         });
     }
 

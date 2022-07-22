@@ -40,12 +40,12 @@
                   <div class="row">
                      <div class="col-md-9 col-sm-9 col-xs-6">
                         <ul class="contact-details">
-                           <li class="hidden-xs"><a href="#">Family Butchers Est. 1901</a>
+                           <li class="hidden-xs"><a href="#">Irbid-Jordan</a>
                            </li>
-                           <li><a href="#"><i class="fa fa-phone"></i> <b>+1 800 123 4567</b> (Open Right Now)</a>
+                           <li><a href="#"><i class="fa fa-phone"></i> <b>+962 777777777</b></a>
                            </li>
                            <li class="hidden-xs"><a href="#"><i
-                                    class="fa fa-paper-plane-o"></i>&nbsp;&nbsp;hello@example.com</a>
+                                    class="fa fa-paper-plane-o"></i>&nbsp;&nbsp;contact@mumm.com</a>
                            </li>
                         </ul>
                      </div>
@@ -74,7 +74,7 @@
                               
                               
                               <li class="nav-item">
-                                 <a class="nav-link" href="#" target="_blank">Contact</a>
+                                 <a class="nav-link" href="#contact" >Contact</a>
                               </li>
                          <li class="nav-item menu-click3 ps-rel">
                                  <a class="nav-link" href="javascript:;">Account <span><i

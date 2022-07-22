@@ -6,36 +6,36 @@
    <div class="index1-slider-wrapper float_left ptb-100">
       <div class="container">
          <div class="slider-caption wow fadeInUp" data-wow-delay="0.1s">
-            <h4>Organic Meat and Sustainable Sea Food for You</h4>
+            <h4>A wide selection of the best chefs with the most delicious dishes</h4>
             <a class="custom-btn" href="product.html"> Shop Now </a>
          </div>
          <div class="slider-item">
             <ul>
                <li class="wow fadeInUp" data-wow-delay="0.1s">
                   <div class="item-icon">
-                     <img alt="img" src="images/item1.png">
+                     <img alt="img" src="images/dish1.png">
                   </div>
                   <div class="item-text">
-                     <h4>Free Delivery on orders over £50</h4>
-                     <p>Proin varius malesuada lacinia.</p>
+                     <h4>Free Delivery on Orders Over 10 JOD</h4>
+                     <p>Fast Delivery.</p>
                   </div>
                </li>
                <li class="wow fadeInUp" data-wow-delay="0.2s">
                   <div class="item-icon">
-                     <img alt="img" src="images/item1.png">
+                     <img alt="img" src="images/dish2.png">
                   </div>
                   <div class="item-text">
-                     <h4>Cut to order by Master Butchers</h4>
-                     <p>Proin varius malesuada lacinia.</p>
+                     <h4>On-demand Quantities from Master Chefs</h4>
+                     <p>Fresh Dishes.</p>
                   </div>
                </li>
                <li class="wow fadeInUp" data-wow-delay="0.3s">
                   <div class="item-icon">
-                     <img alt="img" src="images/item1.png">
+                     <img alt="img" src="images/dish3.png">
                   </div>
                   <div class="item-text">
                      <h4>Choose your own Delivery Date</h4>
-                     <p>Proin varius malesuada lacinia.</p>
+                     <p>For All Occasions.</p>
                   </div>
                </li>
             </ul>
@@ -48,13 +48,13 @@
          <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12">
                <div class="about-img float_left">
-                  <img src="images/butcher_1.png" alt="img">
+                  <img src="images/dreamstime.png" alt="img">
                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
                <div class="about-text float_left">
-                  <h4>About Mummm</h4>
-                  <p>we are committed to total transparency about our products.</p>
+                  <h4>About <i>Mumm</i></h4>
+                  <p>we are committed to total transparency about our Chefs.</p>
                </div>
                <div class="div_line-yal2">
                   <img class="img-fluid" src="images/line-yal.png" alt="img">
@@ -95,7 +95,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6">
                <div class="team-box-wrapper">
                   <div class="team-img">
-                     <img class="img-fluid" src="images/team1.jpg" alt="img">
+                     <img class="img-fluid" src="images/Kitchen1.png" alt="img">
                   </div>
                   <div class="team-text">
                      <h4> <a href="team-single.html"  target="_blank">Kitchen #one</a> </h4>
@@ -107,7 +107,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6">
                <div class="team-box-wrapper">
                   <div class="team-img">
-                     <img class="img-fluid" src="images/team2.jpg" alt="img">
+                     <img class="img-fluid" src="images/kitchen2.jpg" alt="img">
                   </div>
                   <div class="team-text">
                      <h4> <a href="team-single.html"  target="_blank">Kitchen #two</a> </h4>
@@ -119,7 +119,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6">
                <div class="team-box-wrapper">
                   <div class="team-img">
-                     <img class="img-fluid" src="images/team3.jpg" alt="img">
+                     <img class="img-fluid" src="images/kitchen3.png" alt="img">
                   </div>
                   <div class="team-text">
                      <h4> <a href="team-single.html"  target="_blank">Kitchen #three</a> </h4>
@@ -137,7 +137,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6">
                <div class="team-box-wrapper">
                   <div class="team-img">
-                     <img class="img-fluid" src="images/team1.jpg" alt="img">
+                     <img class="img-fluid" src="images/kitchen4.png" alt="img">
                   </div>
                   <div class="team-text">
                      <h4> <a href="team-single.html"  target="_blank">Kitchen #four</a> </h4>
@@ -149,7 +149,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6">
                <div class="team-box-wrapper">
                   <div class="team-img">
-                     <img class="img-fluid" src="images/team2.jpg" alt="img">
+                     <img class="img-fluid" src="images/kitchen5.png" alt="img">
                   </div>
                   <div class="team-text">
                      <h4> <a href="team-single.html"  target="_blank">Kitchen #five</a> </h4>
@@ -161,7 +161,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6">
                <div class="team-box-wrapper">
                   <div class="team-img">
-                     <img class="img-fluid" src="images/team3.jpg" alt="img">
+                     <img class="img-fluid" src="images/kitchen6.jpg" alt="img">
                   </div>
                   <div class="team-text">
                      <h4> <a href="team-single.html" target="_blank">Kitchen #six</a> </h4>
@@ -1798,7 +1798,7 @@
                      <i class="fa fa-map-marker" aria-hidden="true"></i>
                   </div>
                   <div class="r-text">
-                     <h4> 121 King Street, Melbourne <br /> Victoria 3000</h4>
+                     <h4> Online website, Irbid <br /> Jordan </h4>
                   </div>
                </div>
                <!--  -->
@@ -1807,7 +1807,7 @@
                      <i class="fa fa-phone" aria-hidden="true"></i>
                   </div>
                   <div class="r-text">
-                     <h4> +1 800 123 4567</h4>
+                     <h4> +962 777 777 777</h4>
                   </div>
                </div>
                <!--  -->
@@ -1816,14 +1816,14 @@
                      <i class="far fa-envelope"></i>
                   </div>
                   <div class="r-text">
-                     <h4> info@example.com</h4>
+                     <h4> contact@mumm.com</h4>
                   </div>
                </div>
                <!--  -->
 
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-               <div class="request-form-wrapper">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12" id='contact'>
+               <div class="request-form-wrapper" >
                   <h4>Send Your Request</h4>
                   <p>We Are Committed To Total Transparency About Our Products.</p>
                   <div class="div_line-yal">
