@@ -69,7 +69,7 @@
                               </li>
 
                               <li class="nav-item menu-click3 ps-rel">
-                                 <a class="nav-link" href="/kitchen" target="_blank">Kitchens</a>                                 
+                                 <a class="nav-link" href="#Kitchens" >Kitchens</a>                                 
                               </li>
                               
                               
@@ -83,14 +83,14 @@
                                     @if(Route::has('login'))
                                     <li><a href="/login">Login</a></li>
                                     @endif
-                                    <li>
+                                    {{-- <li>
                                        <form action="{{route('logout')}}" method="POST">
                                           @csrf
                                           <button type="submit">Logout</button>
                                        </form>
-                                    </li>
-                                    <li><a href="/sign-up">Sign-up</a></li>
-                                    <li><a href="product-right-sidebar.html">Profile</a></li>
+                                    </li> --}}
+                                    <li><a href="/sigForm ">Sign-up</a></li>
+                                    <li><a href="/profile">Profile</a></li>
                                     
                                  </ul>
                               </li>
@@ -107,7 +107,7 @@
                                  <ul class="dropdown-items menu-open1">
                                     <li>
                                        <span>1 Item</span>
-                                       <a href="javascript:;"> View Cart</a>
+                                       <a href="/cart"> View Cart</a>
                                     </li>
                                     <li class="cart_list">
                                        <div class="select_cart">
@@ -125,7 +125,7 @@
                                        <p>Sub Total:<span>$ 289.00</span></p>
                                     </li>
                                     <li class="cart_btn">
-                                       <a href="cart.html"><i class="fas fa-shopping-cart"></i>&nbsp; View Cart</a>
+                                       <a href="/cart"><i class="fas fa-shopping-cart"></i>&nbsp; View Cart</a>
                                        <a href="checkout.html"><i class="fas fa-share"></i>&nbsp; Checkout</a>
                                     </li>
                                  </ul>
@@ -172,7 +172,7 @@
                                        <p>Sub Total: <span>$ 289.00</span> </p>
                                     </div>
                                     <div class="btn-cart">
-                                       <a href="cart.html"><i class="fas fa-shopping-cart"></i>&nbsp; View Cart</a>
+                                       <a href="/cart"><i class="fas fa-shopping-cart"></i>&nbsp; View Cart</a>
                                        <a href="checkout.html"><i class="fas fa-share"></i>&nbsp; Checkout</a>
                                    </div>
                                  </div>

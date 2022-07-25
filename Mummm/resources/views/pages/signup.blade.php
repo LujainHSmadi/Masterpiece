@@ -36,32 +36,32 @@
                <div class="col-lg-6 col-md-6 col-12">
                   <div class="left-side">
                      <h4>Sign Up</h4>
-                     <form>
+                     <form method="POST"  action="{{route('sigup')}}">
+                        @csrf
                         <div class="form-group field-icon row">
                            <div class="col-md-12">
-                              <input type="text" placeholder="Full Name">
+                              <input type="text" placeholder="Full Name" name="name">
                               <span><i class="fa fa-user" aria-hidden="true"></i></span>
                            </div>
                         </div>
                         <div class="form-group field-icon row">
                            <div class="col-md-12">
-                              <input type="text" placeholder="Email">
+                              <input type="text" placeholder="Email" name="email">
                               <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
                            </div>
                         </div>
                         <div class="form-group field-icon row">
                            <div class="col-md-12">
-                              <input type="password" placeholder="Re-Type Password">
+                              <input type="password" placeholder="Password" name="password">
                               <span><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
                            </div>
                         </div>
-                        <div class="cond">
-                           <input type="checkbox" id="box1" name="box1" value="box1">
-                           <label for="box1"> Yes, I understand and agree to the Terms &amp; Conditions.</label>
-                        </div>
+                      
 
                         <div class="login-btn-sec remove-social">
-                           <a class="sub-btn" href="javascript:;"><span>Sign Up</span></a>
+                           {{-- <a class="sub-btn" href="sigup"><span>Sign Up</span></a> --}}
+                        <input type="submit" name="signup" id="signup" class="sub-btn" value="Register"/>
+
                            
                            <p>Do have an account? <a href="login.html">Sign In now!</a></p>
                         </div>

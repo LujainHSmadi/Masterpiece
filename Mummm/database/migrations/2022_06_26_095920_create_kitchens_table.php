@@ -18,7 +18,6 @@ class CreateKitchensTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->text('image');
-            $table->integer('product_id');
             $table->nullableTimestamps();
         });
     }

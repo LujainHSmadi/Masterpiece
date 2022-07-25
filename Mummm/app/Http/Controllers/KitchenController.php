@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kitchen;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class KitchenController extends Controller
@@ -14,8 +15,16 @@ class KitchenController extends Controller
      */
     public function index()
     {
-        //
-        return view('pages.kitchens');
+
+        return view('pages.home');
+
+    }
+    public function showCategory()
+    {
+        $categories = Kitchen::all();
+        $popular_products = Product::inRandomOrder()->Limit(3)->get();
+
+        return view('pages.home',compact('categories','popular_products'));
 
     }
 
@@ -27,7 +36,6 @@ class KitchenController extends Controller
     public function create()
     {
         //
-       
 
     }
 
@@ -48,8 +56,13 @@ class KitchenController extends Controller
      * @param  \App\Models\Kitchen  $kitchen
      * @return \Illuminate\Http\Response
      */
-    public function show(Kitchen $kitchen)
+    public function show($id)
     {
+        $category = Kitchen::find($id);
+        $categories = Kitchen::all();
+        $products = Product::where('Kitchen_id',$category->id)->get();
+        return view('pages.allProducts',compact('products','categories'));
+
         //
     }
 

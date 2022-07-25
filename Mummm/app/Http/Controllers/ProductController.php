@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -35,7 +36,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -44,9 +45,13 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $product = Product::find($id);
+        $Productjoin = DB::table('products')->join('kitchens', 'products.kitchen_id', '=', 'kitchens.id')->select( 'kitchens.description as kitchen_description')->where('products.id', $id)->get();
+        $related_products = Product::where('kitchen_id', $product->kitchen_id)->inRandomOrder()->Limit(3)->get();
+
+        return view('pages.singleProduct', compact('product','related_products','Productjoin'));
     }
 
     /**
