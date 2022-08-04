@@ -76,29 +76,56 @@
                               <li class="nav-item">
                                  <a class="nav-link" href="#contact" >Contact</a>
                               </li>
-                         <li class="nav-item menu-click3 ps-rel">
-                                 <a class="nav-link" href="javascript:;">Account <span><i
-                                          class="fas fa-chevron-down"></i></span></a>
-                                 <ul class="dropdown-items menu-open3">
-                                    @if(Route::has('login'))
-                                    <li><a href="/login">Login</a></li>
-                                    @endif
-                                    {{-- <li>
-                                       <form action="{{route('logout')}}" method="POST">
-                                          @csrf
-                                          <button type="submit">Logout</button>
-                                       </form>
-                                    </li> --}}
-                                    <li><a href="/sigForm ">Sign-up</a></li>
-                                    <li><a href="/profile">Profile</a></li>
-                                    
-                                 </ul>
+
+                                 
+                          
+        {{-- auth --}}
+                            @if (Route::has('login'))
+                            @auth
+
+                                @if (Auth::user()->utype === 'ADM')
+
+                             <li class="nav-item">
+                                 <a  class="nav-link" href="{{   Auth::user()->name }}'s Profile " >Contact</a>
                               </li>
-                           {{-- <li class="nav-item">
-                              <a href="/login" target="_blank" class="nav-link"><i class="fa fa-user" aria-hidden="true"></i>
-                                 Login</a>
-                           </li> --}}
-                       
+
+                                 <li><a  class="nav-link" href="{{ route('logout') }} onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a></li>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                @csrf
+
+                                            </form>
+                                
+                                    <li class="nav-item"><a  class="nav-link" href="{{ route('register') }}">Sign-up</a></li>
+                                      <li class="nav-item"><a  class="nav-link" href="{{ route('login') }}">Login</a></li>
+                                    
+                                 
+                              @else
+                  
+                             <li class="nav-item">
+                                 <a class="nav-link" href="{{   Auth::user()->name }}'s Profile " ></a>
+                              </li>
+
+                                           <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a>
+                                           </li>
+
+
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                @csrf
+
+                                            </form>
+                                             <li class="nav-item">
+                                 <a class="nav-link"> {{   Auth::user()->name }}'s Profile</a>
+                              </li>
+                             @endif
+                            @else
+                                
+                                    <li><a  class="nav-link"href="{{ route('register') }}">Sign-up</a></li>
+                                      <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+
+   @endif
+                            @endif
+                                      {{-- auth --}}
 
                               <li class="nav-item menu-click1 ps-rel">
                                  <a class="nav-link" href="javascript:;">Cart &nbsp;<i class="fa fa-shopping-cart"

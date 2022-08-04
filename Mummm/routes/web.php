@@ -25,5 +25,15 @@ Route::resource('category', KitchenController::class);
 Route::resource('product', ProductController::class);
 Route::resource('cart', CartController::class);
 Route::resource('users', UserController::class);
-Route::get('/sigForm', [UserController::class, 'create']);
-Route::post('/sigup', [UserController::class, 'store'])->name('sigup');
+// Route::get('/sigForm', [UserController::class, 'create']);
+// Route::post('/sigup', [UserController::class, 'store'])->name('sigup');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
