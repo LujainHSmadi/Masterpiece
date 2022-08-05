@@ -152,7 +152,10 @@
                             @endforeach
                             <h3>Order Total <span>{{$total}}</span></h3>
                         </div>
-                        <a class="custom-btn" href="{{route('order.store')}}">Place Order</a>
+                         <form method="post" action="{{route('order.store')}}">
+                                                @csrf
+                        <button class="custom-btn" href="{{route('order.store')}}">Place Order</button>
+                         </form>
                     </div>
                 </div>
             </div>

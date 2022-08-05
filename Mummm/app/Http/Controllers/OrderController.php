@@ -54,28 +54,21 @@ class OrderController extends Controller
                 ->join('products', 'carts.product_id', '=', 'products.id')
                 ->get(['carts.sub_total', 'carts.quantity', 'products.image', 'products.name as productName', 'products.id as product_id', 'products.price', 'users.name', 'users.address', 'users.id as user_id', 'users.phonenumber', 'users.email']);
             $total = Cart::where('user_id', auth()->user()->id)->pluck('sub_total')->sum();
-            // dd($user);
+            // dd($user[0]->user_id);
+
             $order = new Order();
-            $order->user_id = $user->user_id;
-            $order->product_id = $user->product_id;
-            $order->product_quantity = $user->quantity;
+            $order->user_id = $user[0]->user_id;
+            $order->product_id = $user[0]->product_id;
+            $order->product_quantity = $user[0]->quantity;
             $subtotal = Cart::where('user_id', auth()->user()->id)->pluck('sub_total')->sum();
             $order->order_total_price = $subtotal;
-            $order->user_id = $user->user_id;
+            $order->order_status = 0;
+            $order->user_id = $user[0]->user_id;
             $order->save();
-            // $request->session()->forget('carts');
+            $cartItem = Cart::where('user_id', Auth::id())->get();
+            Cart::destroy($cartItem);
 
-            // $request->session()->flush();
-
-            // $cart = new Cart();
-            // $cart->user_id =null;
-            // $cart->product_id =null;
-            // $cart->price =0;
-            // $cart->quantity = null;
-            // $cart->order_total_price = null;
-            // $cart->save();
-
-            // return view('pages.checkout', compact('user', 'total'));
+            return redirect('/')->with('status','Order placed successfully');
 
         } else {
             return redirect()->route('login')->withFailure(__('You must login to see this page'));
