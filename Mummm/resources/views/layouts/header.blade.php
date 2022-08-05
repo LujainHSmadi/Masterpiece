@@ -7,6 +7,7 @@
    <title>Meat Shop</title>
    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
    <!--Template style -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <link rel="stylesheet" type="text/css" href="/css/animate.css" />
    <link rel="stylesheet" type="text/css" href="/css/animate.min.css" />
    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
@@ -69,7 +70,7 @@
                               </li>
 
                               <li class="nav-item menu-click3 ps-rel">
-                                 <a class="nav-link" href="#Kitchens" >Kitchens</a>                                 
+                                 <a class="nav-link" href="/#Kitchens" >Kitchens</a>                                 
                               </li>
                               
                               

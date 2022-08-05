@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -14,7 +16,20 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('pages.cart');
+        if (Auth::id()) {
+            $cartItems = Cart::orderBy('carts.id', 'ASC')
+                ->where('user_id', auth()->user()->id)
+                ->join('users', 'carts.user_id', '=', 'users.id')
+                ->join('products', 'carts.product_id', '=', 'products.id')
+                ->get(['carts.id', 'carts.sub_total', 'carts.quantity', 'products.image', 'products.name', 'products.price']);
+
+            $total = Cart::where('user_id', auth()->user()->id)->pluck('sub_total')->sum();
+            // dd($total);
+            return view('pages.cart', compact('cartItems', 'total'));
+
+        } else {
+            return redirect()->route('login')->withFailure(__('You must login to see this page'));
+        }
         //
     }
 
@@ -25,7 +40,7 @@ class CartController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -36,7 +51,31 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (Auth::id()) {
+
+            $price = Product::find($request->id);
+            if ($cart = Cart::where('user_id', auth()->user()->id)->Where('product_id', $request->id)->first()) {
+                $cart->quantity = $cart->quantity + $request->quantity;
+                $cart->sub_total = $cart->sub_total + (($request->quantity) * ($price->price ?? 0));
+                $subtotal = Cart::where('user_id', auth()->user()->id)->pluck('sub_total')->sum();
+                $cart->total += $subtotal;
+                $cart->update();
+                return redirect()->back();
+            } else {
+                $cart = new Cart();
+                $cart->user_id = auth()->user()->id;
+                $cart->product_id = $request->id;
+                $cart->price = $price->price ?? 0;
+                $cart->quantity = $request->quantity;
+                $cart->sub_total = ($request->quantity) * ($price->price ?? 0);
+                $cart->save();
+                return redirect(url()->previous() . "#$request->product_id");
+            }
+        } else {
+            return redirect()->route('login')->withFailure(__('You must login to purchase this product'));
+
+        }
+
     }
 
     /**
@@ -47,7 +86,7 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
-        //
+
     }
 
     /**
@@ -68,9 +107,14 @@ class CartController extends Controller
      * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cart $cart)
-    {
-        //
+    public function update( Cart $cart, Request $request)
+    {  
+      
+        $cart->quantity = (($cart->quantity) + 1);
+        $cart->sub_total = ($cart->quantity) * ($cart->price);
+        $cart->update();
+        return redirect()->route('cart.index');
+
     }
 
     /**
@@ -81,6 +125,19 @@ class CartController extends Controller
      */
     public function destroy(Cart $cart)
     {
-        //
+        $cart->delete();
+        return redirect()->route('cart.index');
+
     }
+   
+    public function decreaseValue( Cart $cart, Request $request)
+    {   dd($request->name);
+      
+        $cart->quantity = (($cart->quantity) - 1);
+        $cart->sub_total = ($cart->quantity) * ($cart->price);
+        $cart->update();
+        return redirect()->route('cart.index');
+
+    }
+
 }

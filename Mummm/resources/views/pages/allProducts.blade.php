@@ -124,7 +124,19 @@
                               </ul>
                               <span class="product-price">{{$item->price}} <span>4,600$</span> </span>
                               <p class="product-text">{{$item->description}}</p>
-                              <a class="custom-btn" href="product-single.html">Add Cart</a>
+                              
+                              <form action="{{ route('cart.store')}}" method="post">
+                                                            @csrf
+
+                                                            <input type="hidden" name="id" value="{{ $item->id }}"/>
+                                                            <input type="hidden" name="quantity" value="1" />
+                                                            <input type="hidden" name="product_price" value="{{$item->product_price }}"/>
+
+                                                            <button type="submit" class="custom-btn">Add Cart
+                                                              {{-- <a class="custom-btn" href="product-single.html">Add Cart</a> --}}
+                                                            </button>
+                                                        </form>
+                             
                            </div>
                         </div>
                         @endforeach
