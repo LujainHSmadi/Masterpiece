@@ -154,6 +154,7 @@
                         </div>
                          <form method="post" action="{{route('order.store')}}">
                                                 @csrf
+                                                @method('PUT')
                         <button class="custom-btn" href="{{route('order.store')}}">Place Order</button>
                          </form>
                     </div>

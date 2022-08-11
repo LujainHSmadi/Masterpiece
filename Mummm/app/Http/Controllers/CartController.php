@@ -24,8 +24,10 @@ class CartController extends Controller
                 ->get(['carts.id', 'carts.sub_total', 'carts.quantity', 'products.image', 'products.name', 'products.price']);
 
             $total = Cart::where('user_id', auth()->user()->id)->pluck('sub_total')->sum();
-            // dd($total);
-            return view('pages.cart', compact('cartItems', 'total'));
+            $sum_quantity = Cart::where('user_id', auth()->user()->id)->pluck('quantity')->sum();
+
+            // dd($sum_quantity);
+            return view('pages.cart', compact('cartItems', 'total','sum_quantity'));
 
         } else {
             return redirect()->route('login')->withFailure(__('You must login to see this page'));
@@ -58,7 +60,6 @@ class CartController extends Controller
                 $cart->quantity = $cart->quantity + $request->quantity;
                 $cart->sub_total = $cart->sub_total + (($request->quantity) * ($price->price ?? 0));
                 $subtotal = Cart::where('user_id', auth()->user()->id)->pluck('sub_total')->sum();
-                $cart->total += $subtotal;
                 $cart->update();
                 return redirect()->back();
             } else {
@@ -107,9 +108,9 @@ class CartController extends Controller
      * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function update( Cart $cart, Request $request)
-    {  
-      
+    public function update(Cart $cart, Request $request)
+    {
+
         $cart->quantity = (($cart->quantity) + 1);
         $cart->sub_total = ($cart->quantity) * ($cart->price);
         $cart->update();
@@ -129,10 +130,10 @@ class CartController extends Controller
         return redirect()->route('cart.index');
 
     }
-   
-    public function decreaseValue( Cart $cart, Request $request)
-    {   dd($request->name);
-      
+
+    public function decreaseValue(Cart $cart, Request $request)
+    {dd($request->name);
+
         $cart->quantity = (($cart->quantity) - 1);
         $cart->sub_total = ($cart->quantity) * ($cart->price);
         $cart->update();

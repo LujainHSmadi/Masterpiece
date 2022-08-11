@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\User;
@@ -23,7 +24,12 @@ class OrderController extends Controller
                 ->join('products', 'carts.product_id', '=', 'products.id')
                 ->get(['carts.sub_total', 'carts.quantity', 'products.image', 'products.name as productName', 'products.id as product_id', 'products.price', 'users.name', 'users.address', 'users.id as user_id', 'users.phonenumber', 'users.email']);
             $total = Cart::where('user_id', auth()->user()->id)->pluck('sub_total')->sum();
+            // dd($user);
+            if( $user->isNotEmpty())
             return view('pages.checkout', compact('user', 'total'));
+            else
+            return redirect('/')->withFailure(__('empty cart'));
+
 
         } else {
             return redirect()->route('login')->withFailure(__('You must login to see this page'));
@@ -55,6 +61,7 @@ class OrderController extends Controller
                 ->get(['carts.sub_total', 'carts.quantity', 'products.image', 'products.name as productName', 'products.id as product_id', 'products.price', 'users.name', 'users.address', 'users.id as user_id', 'users.phonenumber', 'users.email']);
             $total = Cart::where('user_id', auth()->user()->id)->pluck('sub_total')->sum();
             // dd($user[0]->user_id);
+            
 
             $order = new Order();
             $order->user_id = $user[0]->user_id;
@@ -65,10 +72,13 @@ class OrderController extends Controller
             $order->order_status = 0;
             $order->user_id = $user[0]->user_id;
             $order->save();
+
+            Alert::success('Congrats', 'You\'ve Successfully placed an order');
+
             $cartItem = Cart::where('user_id', Auth::id())->get();
             Cart::destroy($cartItem);
 
-            return redirect('/')->with('status','Order placed successfully');
+            return redirect('/')->with('status', 'Order placed successfully');
 
         } else {
             return redirect()->route('login')->withFailure(__('You must login to see this page'));
