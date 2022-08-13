@@ -25,11 +25,11 @@ class OrderController extends Controller
                 ->get(['carts.sub_total', 'carts.quantity', 'products.image', 'products.name as productName', 'products.id as product_id', 'products.price', 'users.name', 'users.address', 'users.id as user_id', 'users.phonenumber', 'users.email']);
             $total = Cart::where('user_id', auth()->user()->id)->pluck('sub_total')->sum();
             // dd($user);
-            if( $user->isNotEmpty())
-            return view('pages.checkout', compact('user', 'total'));
-            else
-            return redirect('/')->withFailure(__('empty cart'));
-
+            if ($user->isNotEmpty()) {
+                return view('pages.checkout', compact('user', 'total'));
+            } else {
+                return redirect('/')->withFailure(__('empty cart'));
+            }
 
         } else {
             return redirect()->route('login')->withFailure(__('You must login to see this page'));
@@ -43,7 +43,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-       
+
     }
 
     /**
@@ -60,8 +60,6 @@ class OrderController extends Controller
                 ->join('products', 'carts.product_id', '=', 'products.id')
                 ->get(['carts.sub_total', 'carts.quantity', 'products.image', 'products.name as productName', 'products.id as product_id', 'products.price', 'users.name', 'users.address', 'users.id as user_id', 'users.phonenumber', 'users.email']);
             $total = Cart::where('user_id', auth()->user()->id)->pluck('sub_total')->sum();
-            // dd($user[0]->user_id);
-            
 
             $order = new Order();
             $order->user_id = $user[0]->user_id;
@@ -128,6 +126,55 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order = Order::find($order->id);
+        $order->delete();
+        return redirect()->back()->with('status', 'Order deleted successfully');
     }
+
+    public function viewOrders()
+    {
+
+        $OrderJoin = Order::join('users', 'orders.user_id', '=', 'users.id')
+           ->join('products', 'orders.product_id', '=', 'products.id')
+           ->get(['orders.*',  'products.name as productName', 'products.id as product_id', 'products.price', 'users.name as UserName', 'users.address',  'users.phonenumber', 'users.email']);
+        //    dd($OrderJoin);
+        
+         return view('admin.view_all', compact('OrderJoin'));
+
+    }
+
+    public function cancel($id)
+    {
+        
+        $order = Order::find($id);
+        $order->order_status = 4;
+        $order->save();
+        return redirect()->back()->with('status', 'Order cancelled successfully');
+    }
+    public function process($id)
+    {
+        $order = Order::find($id);
+        $order->order_status = 1;
+        $order->save();
+        return redirect()->back()->with('status', 'Order processed successfully');
+    }
+    public function delevered($id){
+        $order = Order::find($id);
+        $order->order_status = 3;
+        $order->save();
+        return redirect()->back()->with('status', 'Order delivered successfully');
+    }
+    public function shipped($id){
+        $order = Order::find($id);
+        $order->order_status = 2;
+        $order->save();
+        return redirect()->back()->with('status', 'Order shipped successfully');
+    }
+    public function pending($id){
+        $order = Order::find($id);
+        $order->order_status = 0;
+        $order->save();
+        return redirect()->back()->with('status', 'Order pending successfully');
+    }
+
 }

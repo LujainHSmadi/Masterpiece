@@ -152,7 +152,7 @@
 
                                                         <ul class="dropdown-items menu-open1">
                                                             <li>
-                                                                <span>{{$sum_quantity ?? 0}} Item</span>
+                                                                <span>{{$cartItems[0]->quantity?? 0}} Item</span>
                                                                 <a href="/cart"> View Cart</a>
                                                             </li>
                                                             @if(Auth::user() && Cart::where('user_id', Auth::user()->id)->count() > 0)
@@ -169,7 +169,7 @@
                                                         </div>
                                                     </li>
                                                     <li class="sub_total">
-                                                        <p>Sub Total:<span>{{$cartItems[0]->price}} JD</span></p>
+                                                        <p>Sub Total:<span>{{$cartItems[0]->sub_total}} JD</span></p>
                                                     </li>
                                                     <li class="cart_btn">
                                                         <a href="/cart"><i class="fas fa-shopping-cart"></i>&nbsp; View
