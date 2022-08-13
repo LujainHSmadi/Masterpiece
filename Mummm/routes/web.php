@@ -10,7 +10,7 @@ Route::get('/', [KitchenController::class, 'showCategory']);
 Route::resource('category', KitchenController::class);
 Route::post('category/{id}', [KitchenController::class, 'update'])->name('updateCategory');
 Route::resource('product', ProductController::class);
-Route::post('product/{id}', [ProductController::class, 'update'])->name('updateroduct');
+Route::post('product/{id}', [ProductController::class, 'update'])->name('updateProduct');
 
 Route::resource('cart', CartController::class);
 Route::resource('order', OrderController::class);
