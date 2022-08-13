@@ -23,12 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-//         view()->composer(
-//     ['dashboard'],
-//     'App\Http\Controllers\ProductController@index'
-// );
-
+       View::composer('dashboard', function ($view) {
+    
+});
 
     }
 }

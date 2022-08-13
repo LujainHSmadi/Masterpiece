@@ -8,18 +8,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [KitchenController::class, 'showCategory']);
 Route::resource('category', KitchenController::class);
+Route::post('category/{id}', [KitchenController::class, 'update'])->name('updateCategory');
 Route::resource('product', ProductController::class);
+Route::post('product/{id}', [ProductController::class, 'update'])->name('updateProduct');
+
 Route::resource('cart', CartController::class);
 Route::resource('order', OrderController::class);
-Route::patch('decrease/{id}', [CartController::class, 'decreaseValue'])->name('decrease');
-// Route::match(['put', 'patch'], '/decrease/{id}', 'App\Http\Controllers\CartController@decreaseValue')->name('decrease');
+Route::post('decrease/{id}', [CartController::class, 'decreaseValue'])->name('decrease');
 
 Route::resource('users', UserController::class);
 Route::get('/admindash', function () {
     return view('admin.productView');
 });
-// Route::get('/sigForm', [UserController::class, 'create']);
-// Route::post('/sigup', [UserController::class, 'store'])->name('sigup');
 
 Route::middleware([
     'auth:sanctum',

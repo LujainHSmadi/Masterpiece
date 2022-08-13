@@ -131,10 +131,13 @@ class CartController extends Controller
 
     }
 
-    public function decreaseValue(Cart $cart, Request $request)
-    {dd($request->name);
+    public function decreaseValue( $id)
+    {
+        // dd($cart->all());
+           $cart=  Cart::find($id);
+        $cart->quantity -=   1;
+        // dd($cart->quantity);
 
-        $cart->quantity = (($cart->quantity) - 1);
         $cart->sub_total = ($cart->quantity) * ($cart->price);
         $cart->update();
         return redirect()->route('cart.index');

@@ -96,7 +96,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6">
                <div class="team-box-wrapper">
                   <div class="team-img">
-                    <a href={{route('category.show',$item->id)}}><img class="img-fluid" src={{$item->image}} alt="img"></a> 
+                    <a href={{route('category.show',$item->id)}}><img class="img-fluid" src={{$item->image}} alt="img" width=""></a> 
                   </div>
                   <div class="team-text">
                      <h4> <a href="team-single.html"  target="_blank">{{$item->name}}</a> </h4>
@@ -322,7 +322,7 @@
                <div class="call-sec-wrapper float_left">
                   <h4>Call Now</h4>
                   <img class="img-fluid" src="images/line-yal-red.png" alt="img">
-                  <h2 class="call">+61 3 8376 6284</h2>
+                  <h2 class="call">+962 773 836 624</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentumlaoreet velit ut rhoncus.
                      Class aptent taciti sociosqu ad litora torquent per conubia nostra</p>
                   <a class="custom-btn" href="store.html">Contact Us</a>

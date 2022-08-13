@@ -149,7 +149,7 @@
          <div class="heading-title">
             <h4>About the Product</h4>
             <p>Additional information,reviews & description</p>
-            <img class="img-fluid " src="images/under-line.png" alt="img">
+            <img class="img-fluid " src="/images/under-line.png" alt="img">
          </div>
          <div class="custom-tabs float_left">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -227,7 +227,7 @@
                             <li> <a href="javascript:;"><i class="fa fa-star" aria-hidden="true"></i></a> </li>
                             <li> <a href="javascript:;"><i class="fa fa-star" aria-hidden="true"></i></a> </li>
                         </ul>
-                        <span class="product-price">{{$item->price}} JOD<span>4,600$</span> </span>
+                        <span class="product-price">{{$item->price}} JOD<</span>
                         <p class="product-text">{{$item->discription}}</p>
                         <a class="custom-btn" href="product-left-sidebar.html">Add Cart</a>
                     </div>

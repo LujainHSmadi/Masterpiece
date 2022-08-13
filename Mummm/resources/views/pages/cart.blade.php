@@ -70,7 +70,7 @@
                         <div class="quantity-field">
 
                             <form action="{{ route('decrease', $item->id) }}" method="post">
-                                @method('PATCH')
+                                {{-- @method('PATCH') --}}
                                 @csrf
                                 <button type="submit" class="value-button decrease-button" title="add" name='increase'>-</button>
                             </form>

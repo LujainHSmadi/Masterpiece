@@ -16,7 +16,8 @@ class KitchenController extends Controller
     public function index()
     {
 
-        return view('pages.home');
+        $categories = Kitchen::all();
+        return view('admin.category', compact('categories'));
 
     }
     public function showCategory()
@@ -24,7 +25,7 @@ class KitchenController extends Controller
         $categories = Kitchen::all();
         $popular_products = Product::inRandomOrder()->Limit(3)->get();
 
-        return view('pages.home',compact('categories','popular_products'));
+        return view('pages.home', compact('categories', 'popular_products'));
 
     }
 
@@ -35,7 +36,7 @@ class KitchenController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category_create');
 
     }
 
@@ -47,7 +48,18 @@ class KitchenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Kitchen();
+        $category->name = $request->name;
+        $category->description = $request->description;
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('public/Image'), $filename);
+            $category->image = $filename;
+        }
+
+        $category->save();
+        return redirect()->route('category.index');
     }
 
     /**
@@ -60,8 +72,8 @@ class KitchenController extends Controller
     {
         $category = Kitchen::find($id);
         $categories = Kitchen::all();
-        $products = Product::where('Kitchen_id',$category->id)->get();
-        return view('pages.allProducts',compact('products','categories'));
+        $products = Product::where('Kitchen_id', $category->id)->get();
+        return view('pages.allProducts', compact('products', 'categories'));
 
         //
     }
@@ -72,9 +84,10 @@ class KitchenController extends Controller
      * @param  \App\Models\Kitchen  $kitchen
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kitchen $kitchen)
+    public function edit($id)
     {
-        //
+        $category = Kitchen::find($id);
+        return view('admin.category_edit', compact('category'));
     }
 
     /**
@@ -84,9 +97,19 @@ class KitchenController extends Controller
      * @param  \App\Models\Kitchen  $kitchen
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kitchen $kitchen)
+    public function update(Request $request, $id)
     {
-        //
+        $category = Kitchen::find($id);
+        $category->name = $request->name;
+        $category->description = $request->description;
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('public/Image'), $filename);
+            $category->image = $filename;
+        }
+        $category->update();
+        return redirect()->route('category.index');
     }
 
     /**
@@ -95,8 +118,10 @@ class KitchenController extends Controller
      * @param  \App\Models\Kitchen  $kitchen
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kitchen $kitchen)
+    public function destroy($id)
     {
-        //
+        $category = Kitchen::find($id);
+        $category->delete();
+        return redirect()->route('category.index');
     }
 }

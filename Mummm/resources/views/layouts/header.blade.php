@@ -64,7 +64,7 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="index1-logo">
                                     <a href="index-2.html">
-                                        <img src="images/logo.jpg" alt="logo">
+                                        <img src="/images/logo.jpg" alt="logo">
                                     </a>
                                 </div>
                                 <nav class="navbar navbar-expand-lg">
@@ -136,7 +136,7 @@
                                             {{-- auth --}}
                                             @php
                                                 use App\Models\Cart;
-                                            if(Auth::user()){
+                                            if(Auth::user() && Cart::where('user_id', Auth::user()->id)->count() > 0){
                                                 
                                                 $cartItems = Cart::orderBy('carts.id', 'ASC')
                                                     ->where('user_id', auth()->user()->id)
@@ -155,7 +155,7 @@
                                                                 <span>{{$sum_quantity ?? 0}} Item</span>
                                                                 <a href="/cart"> View Cart</a>
                                                             </li>
-                                                            @if(Auth::user())
+                                                            @if(Auth::user() && Cart::where('user_id', Auth::user()->id)->count() > 0)
                                                     <li class="cart_list">
                                                         <div class="select_cart">
                                                             <a href="#">{{$cartItems[0]->name}}</a>

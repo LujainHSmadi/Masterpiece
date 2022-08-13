@@ -130,9 +130,9 @@
             <div class="col-lg-7 col-md-7 col-sm-12 col-12">
                <div class="copy-right">
                   <p>Copyright 2022 © </p>
-                  <a href="javascript:;">Butcher | Meat Shop HTML Template</a>
-                  <p>Design By</p>
-                  <a href="javascript:;">Webstrot</a>
+                  <a href="javascript:;">Mumm | food Shop</a>
+                  <p>Developed By</p>
+                  <a href="javascript:;">Lujain Smadi</a>
                </div>
             </div>
          </div>
