@@ -63,7 +63,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12">
                                 <div class="index1-logo">
-                                    <a href="index-2.html">
+                                    <a href="/">
                                         <img src="/images/logo.jpg" alt="logo">
                                     </a>
                                 </div>
@@ -74,12 +74,12 @@
                                         </li>
 
                                         <li class="nav-item menu-click3 ps-rel">
-                                            <a class="nav-link" href="/#Kitchens">Kitchens</a>
+                                            <a class="nav-link" href="kitchens">Kitchens</a>
                                         </li>
 
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#contact">Contact</a>
+                                            <a class="nav-link" href="/#contact">Contact</a>
                                         </li>
 
 
@@ -90,93 +90,113 @@
 
                                                 @if (Auth::user()->utype === 'ADM')
 
-                                                    <li class="nav-item">
-                                                        <a class="nav-link"
-                                                            href="{{ Auth::user()->name }}'s Profile ">Contact</a>
-                                                    </li>
 
-                                                    <li><a class="nav-link"
-                                                            href="{{ route('logout') }} onclick="event.preventDefault();
-                                                            document.getElementById('logout-form').submit();">logout</a>
-                                                    </li>
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                                        @csrf
-
-                                                    </form>
-
-                                                    <li class="nav-item"><a class="nav-link"
-                                                            href="{{ route('register') }}">Sign-up</a></li>
-                                                    <li class="nav-item"><a class="nav-link"
-                                                            href="{{ route('login') }}">Login</a></li>
-                                                @else
-                                                    <li class="nav-item">
-                                                        <a class="nav-link"
-                                                            href="{{ Auth::user()->name }}'s Profile "></a>
-                                                    </li>
 
                                                     <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
                                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a>
                                                     </li>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                        @csrf
+
+                                                    </form>
+
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="/admindash">Hello {{ Auth::user()->name }}</a>
+                                                    </li>
+
+                                                    {{-- <li class="nav-item"><a class="nav-link"
+                                                            href="{{ route('register') }}">Sign-up</a></li>
+                                                    <li class="nav-item"><a class="nav-link"
+                                                            href="{{ route('login') }}">Login</a></li> --}}
+                                                @else
+                                                    
+                                                    <li>
+                                                    <li class="nav-item  menu-click5 ps-rel">
+                                                        <a class="nav-link" href="javascript:;">{{ Auth::user()->name }} <span><i
+                                                                    class="fas fa-chevron-down"></i></span></a>
+                                                        <ul class="dropdown-items menu-open5">
+                                                            <li class="nav-item"><a class="nav-link"
+                                                                    href="{{ route('logout') }}"
+                                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                                            </li>
+                                                            <li class="nav-item">
+                                                                <a class="nav-link" href="/user/profile ">Profile</a>
+                                                            </li>
+                                                           
+                                                        </ul>
+                                                    </li>
+
+                                                    </li>
 
 
                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                                         @csrf
 
                                                     </form>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link"> {{ Auth::user()->name }}'s Profile</a>
-                                                    </li>
+                                                   
                                                 @endif
                                             @else
-                                                <li><a class="nav-link"href="{{ route('register') }}">Sign-up</a></li>
-                                                <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                                                <li>
+                                                <li class="nav-item  menu-click5 ps-rel">
+                                                    <a class="nav-link" href="javascript:;">Account <span><i
+                                                                class="fas fa-chevron-down"></i></span></a>
+                                                    <ul class="dropdown-items menu-open5">
+                                                        <li><a class="nav-link"href="{{ route('register') }}">Sign-up</a>
+                                                        </li>
+                                                        <li><a class="nav-link" href="{{ route('login') }}">Login</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+                                                </li>
 
                                             @endif
                                             @endif
                                             {{-- auth --}}
                                             @php
                                                 use App\Models\Cart;
-                                            if(Auth::user() && Cart::where('user_id', Auth::user()->id)->count() > 0){
-                                                
-                                                $cartItems = Cart::orderBy('carts.id', 'ASC')
-                                                    ->where('user_id', auth()->user()->id)
-                                                    ->join('users', 'carts.user_id', '=', 'users.id')
-                                                    ->join('products', 'carts.product_id', '=', 'products.id')
-                                                    ->get(['carts.id', 'carts.sub_total', 'carts.quantity', 'products.image', 'products.name', 'products.price']);
-                                                   //  dd($cartItems);
+                                                if (Auth::user() && Cart::where('user_id', Auth::user()->id)->count() > 0) {
+                                                    $cartItems = Cart::orderBy('carts.id', 'ASC')
+                                                        ->where('user_id', auth()->user()->id)
+                                                        ->join('users', 'carts.user_id', '=', 'users.id')
+                                                        ->join('products', 'carts.product_id', '=', 'products.id')
+                                                        ->get(['carts.id', 'carts.sub_total', 'carts.quantity', 'products.image', 'products.name', 'products.price']);
+                                                    //  dd($cartItems);
                                                 }
                                             @endphp
                                             <li class="nav-item menu-click1 ps-rel">
                                                 <a class="nav-link" href="javascript:;">Cart &nbsp;<i
                                                         class="fa fa-shopping-cart" aria-hidden="true"></i></a>
 
-                                                        <ul class="dropdown-items menu-open1">
-                                                            <li>
-                                                                <span>{{$cartItems[0]->quantity?? 0}} Item</span>
-                                                                <a href="/cart"> View Cart</a>
-                                                            </li>
-                                                            @if(Auth::user() && Cart::where('user_id', Auth::user()->id)->count() > 0)
-                                                    <li class="cart_list">
-                                                        <div class="select_cart">
-                                                            <a href="#">{{$cartItems[0]->name}}</a>
-                                                            <span>{{$cartItems[0]->quantity}}x</span>
-                                                        </div>
-                                                        <div class="select_img">
-                                                            <img alt="img" src={{$cartItems[0]->image}}>
-                                                            <div class="close_btn">
-                                                                <i class="fa fa-times"></i>
+                                                <ul class="dropdown-items menu-open1">
+                                                    <li>
+                                                        <span>{{ $cartItems[0]->quantity ?? 0 }} Item</span>
+                                                        <a href="/cart"> View Cart</a>
+                                                    </li>
+                                                    @if (Auth::user() && Cart::where('user_id', Auth::user()->id)->count() > 0)
+                                                        <li class="cart_list">
+                                                            <div class="select_cart">
+                                                                <a href="#">{{ $cartItems[0]->name }}</a>
+                                                                <span>{{ $cartItems[0]->quantity }}x</span>
                                                             </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="sub_total">
-                                                        <p>Sub Total:<span>{{$cartItems[0]->sub_total}} JD</span></p>
-                                                    </li>
-                                                    <li class="cart_btn">
-                                                        <a href="/cart"><i class="fas fa-shopping-cart"></i>&nbsp; View
-                                                            Cart</a>
-                                                        <a href="{{route('order.index')}}"><i class="fas fa-share"></i>&nbsp;
-                                                            Checkout</a>
-                                                    </li>
+                                                            <div class="select_img">
+                                                                <img alt="img" src={{ $cartItems[0]->image }}>
+                                                                <div class="close_btn">
+                                                                    <i class="fa fa-times"></i>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="sub_total">
+                                                            <p>Sub Total:<span>{{ $cartItems[0]->sub_total }} JD</span></p>
+                                                        </li>
+                                                        <li class="cart_btn">
+                                                            <a href="/cart"><i class="fas fa-shopping-cart"></i>&nbsp;
+                                                                View
+                                                                Cart</a>
+                                                            <a href="{{ route('order.index') }}"><i
+                                                                    class="fas fa-share"></i>&nbsp;
+                                                                Checkout</a>
+                                                        </li>
                                                     @endif
                                                 </ul>
                                             </li>

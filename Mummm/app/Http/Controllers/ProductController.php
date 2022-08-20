@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -69,8 +71,9 @@ class ProductController extends Controller
         $product = Product::find($id);
         $Productjoin = DB::table('products')->join('kitchens', 'products.kitchen_id', '=', 'kitchens.id')->select('kitchens.description as kitchen_description')->where('products.id', $id)->get();
         $related_products = Product::where('kitchen_id', $product->kitchen_id)->inRandomOrder()->Limit(3)->get();
+        $comments = Comment::where('product_id', $id)->get();
 
-        return view('pages.singleProduct', compact('product', 'related_products', 'Productjoin'));
+        return view('pages.singleProduct', compact('product', 'related_products', 'Productjoin','comments'));
     }
 
     /**
@@ -127,4 +130,27 @@ class ProductController extends Controller
         $product->delete();
         return redirect('/product')->with('success', 'Product has been deleted Successfully');
     }
+
+    public function addComments(Request $request, $id)
+    {
+        if (Auth::id()) {
+            $comments = new Comment();
+            $comments->product_id = $id;
+            $comments->user_id = auth()->user()->id;
+            $comments->name = auth()->user()->name;
+            $comments->comment = $request->comment;
+            $comments->save();
+
+            return redirect()->back()->with('success', 'Comment has been added');
+        } else {
+            return redirect('/login')->back()->with('error', 'You need to login to comment');
+        }
+    }
+
+    // public function getComments($id)
+    // {
+    //     $comments = Comment::where('product_id', $id)->get();
+    //     return view('pages.singleProduct', compact('comments'));
+    // }
+
 }

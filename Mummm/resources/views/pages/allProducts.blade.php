@@ -1,41 +1,42 @@
 @extends('layouts.master')
 @section('content')
-<div class="inner-slider-wrapper float_left">
-      <div class="container">
-         <div class="inner-caption">
-            <h4>All Product</h4>
-            <img src="/images/title.png" alt="img">
-         </div>
-         <ol class="breadcrumb sicon">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Category</a></li>
-            <li class="active">All Product</li>
-         </ol>
-         <img class="meat" src="/images/title-bottom.png" alt="img">
-      </div>
-   </div>
-   <!-- banner section start end-->
+    <div class="inner-slider-wrapper float_left">
+        <div class="container">
+            <div class="inner-caption">
+                <h4>All Product</h4>
+                <img src="/images/title.png" alt="img">
+            </div>
+            <ol class="breadcrumb sicon">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Category</a></li>
+                <li class="active">All Product</li>
+            </ol>
+            <img class="meat" src="/images/title-bottom.png" alt="img">
+        </div>
+    </div>
+    <!-- banner section start end-->
 
-   <div class="product-filter-main-wrapper float_left ptb-100">
-      <div class="container">
-         <div class="heading-title">
-            <h4>Our Product's</h4>
-            <p>know about our delivery processes</p>
-            <img class="img-fluid" src="/images/line-yal.png" alt="img">
-         </div>
-         <div class="row">
-            <div class="col-lg-3 col-md-3 col-12">
-               <div class="tab">
-                  @foreach ($categories as $item)
-                      
-                  
-                  <button class="tablinks" onclick="openCity(event, 'Pack')">{{$item->name}} <span>
-                        <svg version="1.1" id="Layer_8" xmlns="http://www.w3.org/2000/svg"
-                           xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1080 1080"
-                           style="enable-background:new 0 0 1080 1080;" xml:space="preserve">
+    <div class="product-filter-main-wrapper float_left ptb-100">
+        <div class="container">
+            <div class="heading-title">
+                <h4>Our Product's</h4>
+                <p>know about our delivery processes</p>
+                <img class="img-fluid" src="/images/line-yal.png" alt="img">
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-12">
+                    <div class="tab">
+                        @foreach ($categories as $item)
+                            <button class="tablinks"><a href="{{ route('category.show', $item->id) }}">{{ $item->name }}</a>
+                                <span>
+                                    <svg version="1.1" id="Layer_8" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                        viewBox="0 0 1080 1080" style="enable-background:new 0 0 1080 1080;"
+                                        xml:space="preserve">
 
-                           <g>
-                              <path class="st0" d="M715.5,523.6c0,2.5,0,5,0,7.5c-2.6,4.8-5.3,9.5-11.2,10.5c-2.7,0.5-3.3,1.9-3.7,4.1c-1.8,11-4.8,21.6-8.8,32
+                                        <g>
+                                            <path class="st0"
+                                                d="M715.5,523.6c0,2.5,0,5,0,7.5c-2.6,4.8-5.3,9.5-11.2,10.5c-2.7,0.5-3.3,1.9-3.7,4.1c-1.8,11-4.8,21.6-8.8,32
       c-9.9,26.1-25.2,48.6-45.6,67.7c-1.9,1.7-2.5,2.8-0.5,5c3.1,3.4,4.5,7.8,5.1,12.3c0.2,1.7,0.9,2.7,2.2,3.6c3.2,2.2,6.4,4.3,9.4,6.8
       c5.8,4.9,7.3,12.8,3.9,19.3c-3.4,6.5-10.2,9.5-17.7,7.7c-4.5-1.1-8.9-2.4-13.3-3.7c-1.4-0.4-2.8-0.7-4.4-0.2
       c-8.6,2.9-16.9,1.6-25.1-2.1c-5.7-2.7-10.6-6.6-15.6-10.2c-1.8-1.3-3.3-1.5-5.4-0.7c-30,10.7-60.7,13.6-92.1,7.9
@@ -91,113 +92,119 @@
       c-0.2,2.6,3.5,5.2,8.4,4.9C355,515.8,352.4,512.8,353.6,511.2z M596.4,452.2c1.8-2.2,3.4-4.2,4.9-6.1c1.3-1.7,1.6-3.4-0.1-5
       c-1.7-1.6-6.7-0.9-9.2,1.6c-1.8,1.8,0.9,2.6,1.3,3.9C593.9,448.2,595,449.6,596.4,452.2z M475,504.4c-0.9-2.2-2.4-4.1-4-5.8
       c-1.9-2-5.1-1.8-5.9,0.5c-1.1,3.2,0.3,6.4,1.7,8.9c0.9,1.6,2.8-1.2,4.4-1.7C472.6,505.9,473.7,505.1,475,504.4z" />
-                           </g>
-                        </svg>
-                     </span></button>
-   
-    @endforeach
-                  
-               </div>
-            </div>
-            <div class="col-lg-9 col-md-9 col-12">
-               <div class="custom-tbs-content float_left">
-                  <div id="Beef" class="tabcontent">
-                     <div class="product-new-filter-block">
-                        
-                        @foreach ($products as $item)
-                        <div class="custom-tabs-prdt">
-                           <div class="product-thumbnail">
-                              <a href="javascript:;">
-                                 <img src={{$item->image}} alt="img">
-                              </a>
-                           </div>
-                           <div class="product-body">
-                              <h5 class="product-title">
-                                 <a href={{route('product.show',$item->id)}} title="Beef">{{$item->name}}</a>
-                              </h5>
-                              <ul class="star-review">
-                                 <li> <a href="javascript:;"><i class="fa fa-star" aria-hidden="true"></i></a> </li>
-                                 <li> <a href="javascript:;"><i class="fa fa-star" aria-hidden="true"></i></a> </li>
-                                 <li> <a href="javascript:;"><i class="fa fa-star" aria-hidden="true"></i></a> </li>
-                                 <li> <a href="javascript:;"><i class="fa fa-star" aria-hidden="true"></i></a> </li>
-                                 <li> <a href="javascript:;"><i class="fa fa-star" aria-hidden="true"></i></a> </li>
-                              </ul>
-                              <span class="product-price">{{$item->price}} <span>4,600$</span> </span>
-                              <p class="product-text">{{$item->description}}</p>
-                              
-                              <form action="{{ route('cart.store')}}" method="post">
-                                                            @csrf
-
-                                                            <input type="hidden" name="id" value="{{ $item->id }}"/>
-                                                            <input type="hidden" name="quantity" value="1" />
-                                                            <input type="hidden" name="product_price" value="{{$item->product_price }}"/>
-
-                                                            <button type="submit" class="custom-btn">Add Cart
-                                                              {{-- <a class="custom-btn" href="product-single.html">Add Cart</a> --}}
-                                                            </button>
-                                                        </form>
-                             
-                           </div>
-                        </div>
+                                        </g>
+                                    </svg>
+                                </span></button>
                         @endforeach
-               
-                        
-                     </div>
-                  </div>
-                  
+
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9 col-12">
+                    <div class="custom-tbs-content float_left">
+                        <div id="Beef" class="tabcontent">
+                            <div class="product-new-filter-block">
+
+                                @foreach ($products as $item)
+                                    <div class="custom-tabs-prdt">
+                                        <div class="product-thumbnail">
+                                            <a href={{ route('product.show', $item->id) }}>
+                                                <img src={{ url('public/Productimages/' . $item->image) }} alt="img" >
+                                            </a>
+                                        </div>
+                                        <div class="product-body">
+                                            <h5 class="product-title">
+                                                <a href={{ route('product.show', $item->id) }}
+                                                    title="Beef">{{ $item->name }}</a>
+                                            </h5>
+                                            <ul class="star-review">
+                                                <li> <a href="javascript:;"><i class="fa fa-star"
+                                                            aria-hidden="true"></i></a> </li>
+                                                <li> <a href="javascript:;"><i class="fa fa-star"
+                                                            aria-hidden="true"></i></a> </li>
+                                                <li> <a href="javascript:;"><i class="fa fa-star"
+                                                            aria-hidden="true"></i></a> </li>
+                                                <li> <a href="javascript:;"><i class="fa fa-star"
+                                                            aria-hidden="true"></i></a> </li>
+                                                <li> <a href="javascript:;"><i class="fa fa-star"
+                                                            aria-hidden="true"></i></a> </li>
+                                            </ul>
+                                            <span class="product-price">{{ $item->price }} <span>4,600$</span> </span>
+                                            <p class="product-text">{{ $item->description }}</p>
+
+                                            <form action="{{ route('cart.store') }}" method="post">
+                                                @csrf
+
+                                                <input type="hidden" name="id" value="{{ $item->id }}" />
+                                                <input type="hidden" name="quantity" value="1" />
+                                                <input type="hidden" name="product_price"
+                                                    value="{{ $item->product_price }}" />
+
+                                                <button type="submit" class="custom-btn">Add Cart
+                                                    {{-- <a class="custom-btn" href="product-single.html">Add Cart</a> --}}
+                                                </button>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                @endforeach
 
 
-                  
-                 
-                 
-                  
-                  
-               </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+
             </div>
-
-         </div>
-      </div>
-   </div>
+        </div>
+    </div>
 
 
 
-  
 
 
-   <!-- footer section start -->
 
-   
-   <!-- footer section end -->
-   <!-- Side Panel -->
-   <script src="js/jquery-3.6.0.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-   <script src="js/wow.js"></script>
-   <script src="js/counter.js"></script>
-   <script src="js/tesi.js"></script>
-   <script src="js/testi.js"></script>
-   <script src="js/tabs.js"></script>
-   <script src="js/jquery.magnific-popup.js"></script>
-   <script src="js/isotope.pkgd.min.js"></script>
-   <script src="js/custom.js"></script>
+    <!-- footer section start -->
 
-   <!-- custom js-->
-   <!-- tabs -->
-   <script>
-      function openCity(evt, cityName) {
-         var i, tabcontent, tablinks;
-         tabcontent = document.getElementsByClassName("tabcontent");
-         for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-         }
-         tablinks = document.getElementsByClassName("tablinks");
-         for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-         }
-         document.getElementById(cityName).style.display = "block";
-         evt.currentTarget.className += " active";
-      }
 
-      // Get the element with id="defaultOpen" and click on it
-      document.getElementById("defaultOpen").click();
-   </script>
+    <!-- footer section end -->
+    <!-- Side Panel -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/tesi.js"></script>
+    <script src="js/testi.js"></script>
+    <script src="js/tabs.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/custom.js"></script>
+
+    <!-- custom js-->
+    <!-- tabs -->
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
 @endsection

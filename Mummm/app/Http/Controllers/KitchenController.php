@@ -20,12 +20,29 @@ class KitchenController extends Controller
         return view('admin.category', compact('categories'));
 
     }
+    /**
+     * Show 3 kitchens in home.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function showCategory()
     {
         $categories = Kitchen::all();
         $popular_products = Product::inRandomOrder()->Limit(3)->get();
 
         return view('pages.home', compact('categories', 'popular_products'));
+    }
+    /**
+     * Show all kitchens in kitchens page.
+     *
+     * @return \Illuminate\Http\Response
+     */    
+    public function allkitchens()
+    {
+        $categories = Kitchen::all();
+        $popular_products = Product::inRandomOrder()->get();
+
+        return view('pages.kitchens', compact('categories', 'popular_products'));
 
     }
 

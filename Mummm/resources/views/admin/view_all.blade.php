@@ -93,28 +93,23 @@
                                                 </form>
                                                 <form action="{{ route('shipped', $item->id) }}" method="post">
                                                     @csrf
-                                                    <button class="dropdown-item"><i
-                                                            class="bx bx-edit-alt me-1"></i>
+                                                    <button class="dropdown-item"><i class="bx bx-edit-alt me-1"></i>
                                                         Shipped</button>
                                                 </form>
                                                 <form action="{{ route('pending', $item->id) }}" method="post">
                                                     @csrf
-                                                    <button class="dropdown-item"><i
-                                                            class="bx bx-edit-alt me-1"></i>
-                                                        pending</button>
+                                                    <button class="dropdown-item"><i class="bx bx-edit-alt me-1"></i>
+                                                        Pending</button>
                                                 </form>
                                                 <form action="{{ route('delevered', $item->id) }}" method="post">
                                                     @csrf
-                                                     <button class="dropdown-item" ><i
-                                                        class="bx bx-edit-alt me-1"></i>
-                                                    delevered</button>
+                                                    <button class="dropdown-item"><i class="bx bx-edit-alt me-1"></i>
+                                                        Delivered</button>
                                                 </form>
                                                 <form action="{{ route('process', $item->id) }}" method="post">
                                                     @csrf
-                                                    <button class="dropdown-item"
-                                                        ><i
-                                                            class="bx bx-edit-alt me-1"></i>
-                                                        processing</button>
+                                                    <button class="dropdown-item"><i class="bx bx-edit-alt me-1"></i>
+                                                        Processing</button>
                                                 </form>
 
 
