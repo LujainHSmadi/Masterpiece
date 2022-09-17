@@ -54,11 +54,11 @@ class ProductController extends Controller
             $destinationPath = public_path('public/Productimages');
             $image->move($destinationPath, $name);
             $product->image = $name;
-            $product->price = $request->price;
-            $product->kitchen_id = $request->category_id;
-            $product->save();
-            return redirect('/product')->with('success', 'Product has been added');
         }
+        $product->price = $request->price;
+        $product->kitchen_id = $request->category_id;
+        $product->save();
+        return redirect('/product')->with('success', 'Product has been added');
     }
     /**
      * Display the specified resource.
@@ -73,7 +73,7 @@ class ProductController extends Controller
         $related_products = Product::where('kitchen_id', $product->kitchen_id)->inRandomOrder()->Limit(3)->get();
         $comments = Comment::where('product_id', $id)->get();
 
-        return view('pages.singleProduct', compact('product', 'related_products', 'Productjoin','comments'));
+        return view('pages.singleProduct', compact('product', 'related_products', 'Productjoin', 'comments'));
     }
 
     /**
