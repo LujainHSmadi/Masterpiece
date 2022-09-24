@@ -85,14 +85,14 @@
         </div>
 
          <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="phonenumber" value="{{ __('phonenumber') }}" />
-            <x-jet-input id="phonenumber" type="text" class="mt-1 block w-full" wire:model.defer="state.phonenumber" autocomplete="name" />
+            <x-jet-label for="phonenumber" value="{{ __('Phonenumber') }}" />
+            <x-jet-input id="phonenumber" type="text" class="mt-1 block w-full" wire:model.defer="state.phonenumber" autocomplete="phonenumber" />
             <x-jet-input-error for="phonenumber" class="mt-2" />
         </div>
 
           <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="address" value="{{ __('address') }}" />
-            <x-jet-input id="address" type="text" class="mt-1 block w-full" wire:model.defer="state.address" autocomplete="name" />
+            <x-jet-input id="address" type="text" class="mt-1 block w-full" wire:model.defer="state.address" autocomplete="address" />
             <x-jet-input-error for="address" class="mt-2" />
         </div>
     </x-slot>
