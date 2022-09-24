@@ -33,16 +33,16 @@
                                         <img src={{ url('public/Productimages/' . $item->image) }} alt="Avatar"
                                             class="rounded-circle" style="height: 100px; width: 150px;" />
                                     </td>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <td><i class=" fa-lg text-danger me-3"></i>
                                         <strong>{{ $item->kitchen_name }}</strong>
                                     </td>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <td><i class=" fa-lg text-danger me-3"></i>
                                        {{ $item->name }}
                                     </td>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <td><i class=" fa-lg text-danger me-3"></i>
                                        {{ $item->quantity }}
                                     </td>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <td><i class=" fa-lg text-danger me-3"></i>
                                         {{ $item->price }}
                                     </td>
 
