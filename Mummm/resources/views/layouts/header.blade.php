@@ -123,7 +123,7 @@
                                                                 <a class="nav-link" href="/user/profile ">Profile</a>
                                                             </li>
                                                             <li class="nav-item">
-                                                                <a class="nav-link" href="/user/profile ">My Order</a>
+                                                                <a class="nav-link" href="{{ route('MyOrder') }}">My Order</a>
                                                             </li>
                                                            
                                                         </ul>

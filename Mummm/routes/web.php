@@ -3,6 +3,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactUsRequestAdminDashController;
 use App\Http\Controllers\ContactUsRequestController;
 use App\Http\Controllers\KitchenController;
+use App\Http\Controllers\MyOrderController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -20,6 +21,11 @@ Route::post('comment/{id}', [ProductController::class, 'addComments'])->name('co
 Route::resource('cart', CartController::class);
 Route::resource('users', UserController::class);
 Route::resource('order', OrderController::class);
+
+
+Route::get('/MyOrder', [MyOrderController::class, 'MyOrder'])->name('MyOrder');
+Route::get('/ShowMyOrder/{id}', [MyOrderController::class, 'ShowMyOrder'])->name('ShowMyOrder');
+
 
 Route::get('/kitchens', function () {
     return view('pages.kitchens');

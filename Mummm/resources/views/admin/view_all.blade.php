@@ -36,13 +36,13 @@
                                     <td>
                                         {{ $item->id }}
                                     </td>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <td><i class=" fa-lg text-danger me-3"></i>
                                         <strong>{{ $item->UserName }}</strong>
                                     </td>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <td><i class=" fa-lg text-danger me-3"></i>
                                         {{ $item->product_quantity }}
                                     </td>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <td><i class=" fa-lg text-danger me-3"></i>
                                         <?php
                                             if($item->order_status == 0){
                                                 ?>
@@ -65,16 +65,16 @@
                                         ?>
 
                                     </td>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <td><i class=" fa-lg text-danger me-3"></i>
                                         {{ $item->address }}
                                     </td>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <td><i class=" fa-lg text-danger me-3"></i>
                                         {{ $item->phonenumber }}
                                     </td>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <td><i class=" fa-lg text-danger me-3"></i>
                                         {{ $item->order_total_price }}
                                     </td>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <td><i class=" fa-lg text-danger me-3"></i>
                                         {{ $item->created_at }}
                                     </td>
 

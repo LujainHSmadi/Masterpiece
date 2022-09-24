@@ -31,7 +31,7 @@
                                         <img src={{ url('public/Image/' . $item->image) }} alt="Avatar"
                                             class="rounded-circle" style="height: 100px; width: 150px;" />
                                     </td>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <td><i class=" fa-lg text-danger me-3"></i>
                                         <strong>{{ $item->name }}</strong>
                                     </td>
 
