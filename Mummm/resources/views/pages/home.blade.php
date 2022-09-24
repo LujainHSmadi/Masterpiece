@@ -194,14 +194,15 @@
                                     <div class="custom-tabs-prdt">
                                         <div class="product-thumbnail">
                                             <a href="javascript:;">
-                                                <img src="{{ url('public/Productimages/' . $item->image) }}" alt="img" width="150px" height="300px">
+                                                <img src="{{ url('public/Productimages/' . $item->image) }}" alt="img"
+                                                    width="150px" height="300px">
                                             </a>
                                         </div>
                                         <div class="product-body">
                                             <h5 class="product-title">
                                                 <a href="product-single.html" title="Beef">{{ $item->name }}</a>
                                             </h5>
-                                           
+
                                             <span class="product-price">{{ $item->price }} JOD </span>
                                             <p class="product-text">{{ $item->description }}</p>
                                             <form action="{{ route('cart.store') }}" method="post">
@@ -209,7 +210,8 @@
 
                                                 <input type="hidden" name="id" value="{{ $item->id }}" />
                                                 <input type="hidden" name="quantity" value="1" />
-                                                <input type="hidden" name="product_price" value="{{ $item->price }}" />
+                                                <input type="hidden" name="product_price"
+                                                    value="{{ $item->price }}" />
 
                                                 <button type="submit" class="custom-btn">Add Cart
                                                     {{-- <a class="custom-btn" href="product-single.html">Add Cart</a> --}}
@@ -287,9 +289,7 @@
                         <h4>Call Now</h4>
                         <img class="img-fluid" src="images/line-yal-red.png" alt="img">
                         <h2 class="call">+962 773 836 624</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentumlaoreet velit ut
-                            rhoncus.
-                            Class aptent taciti sociosqu ad litora torquent per conubia nostra</p>
+                        <p>Feel free to contact Us</p>
                         <a class="custom-btn" href="/#contact">Contact Us</a>
                     </div>
                 </div>
@@ -382,8 +382,8 @@
                                 </strong>
                             </div>
                             <div class="mb-3 icon-filed">
-                                <input value="{!! old('phone') ? old('phone') : null !!}" type="text" class="form-control require" name="phone"
-                                    placeholder="Enter Mob. Number">
+                                <input value="{!! old('phone') ? old('phone') : null !!}" type="text" class="form-control require"
+                                    name="phone" placeholder="Enter Mob. Number">
                                 <span><i class="fa fa-phone"></i></span>
                                 <strong class="text-danger">
                                     *

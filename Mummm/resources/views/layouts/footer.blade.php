@@ -10,17 +10,13 @@
                     <div class="line">
                         <img src="/images/4.png" alt="line">
                     </div>
-                    <div class="input-filed">
-                        <input type="email" placeholder="Your Email">
-                        <button>Join Us</button>
-                    </div>
+                   
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <div class="widgettitle">
-                    <h4>Our Story</h4>
+                    <h4></h4>
                     <div class="line">
-                        <img src="/images/4.png" alt="line">
                     </div>
                     <div class="link-page">
 
@@ -79,23 +75,15 @@
                 <div class="copy-social">
                     <ul>
                         <li>
-                            <a href="javascript:;"><i class="fab fa-facebook-f"></i></a>
+                            <a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
                         </li>
                         <li>
-                            <a href="javascript:;"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="http://www.instagram.com"><i class="fab fa-twitter" aria-hidden="true"></i></a>
                         </li>
                         <li>
-                            <a href="javascript:;"><i class="fab fa-google" aria-hidden="true"></i></a>
+                            <a href="http://www.google.com"><i class="fab fa-google" aria-hidden="true"></i></a>
                         </li>
-                        <li>
-                            <a href="javascript:;"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a>
-                        </li>
+                       
                     </ul>
                 </div>
             </div>

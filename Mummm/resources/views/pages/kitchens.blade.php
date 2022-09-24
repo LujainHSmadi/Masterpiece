@@ -24,21 +24,20 @@
                 <img class="img-fluid" src="images/line-yal.png" alt="img">
             </div>
             <div class="row">
-               @foreach ($categories as $item)
-                   
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="team-box-wrapper">
-                        <div class="team-img">
-                            <img class="img-fluid" src={{ url('public/Image/' . $item->image) }} alt="img" >
-                        </div>
-                        <div class="team-text">
-                            <h4> <a href="team-single.html" target="_blank">{{$item->name}}</a> </h4>
-                            <p>OWNER</p>
+                @foreach ($categories as $item)
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="team-box-wrapper">
+                            <div class="team-img">
+                                <img class="img-fluid" src={{ url('public/Image/' . $item->image) }} alt="img">
+                            </div>
+                            <div class="team-text">
+                                <h4> <a href="team-single.html" target="_blank">{{ $item->name }}</a> </h4>
+                                <p>OWNER</p>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-               @endforeach
+                @endforeach
 
             </div>
             {{-- categories part 2 --}}
