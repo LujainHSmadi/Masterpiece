@@ -1,5 +1,24 @@
 @extends('layouts.master')
 @section('content')
+    {{-- =========================================================== --}}
+    {{-- ====================== Sweet Alert ======================== --}}
+    {{-- =========================================================== --}}
+    <div>
+        @if (session()->has('success'))
+            <script>
+                swal("Great Job !!!", "{!! Session::get('success') !!}", "success", {
+                    button: "OK",
+                });
+            </script>
+        @endif
+        @if (session()->has('danger'))
+            <script>
+                swal("Oops !!!", "{!! Session::get('danger') !!}", "error", {
+                    button: "Close",
+                });
+            </script>
+        @endif
+    </div>
     <!-- banner section start start-->
     <div class="index1-slider-wrapper float_left ptb-100">
         <div class="container">
@@ -59,7 +78,8 @@
                     </div>
                     <div class="div_p">
                         <p>Nunc elementum purus vel ex iaculis eleifend. Curabitur bibendum odio dui, at placerat
-                            antperer vitae. In hac habitasse platea dictumst. Phasellus nec sodales enim. Mauris malesuada
+                            antperer vitae. In hac habitasse platea dictumst. Phasellus nec sodales enim. Mauris
+                            malesuada
                             nulla
                             hole enim, nec eleifend lacus vulputate ut. Sed eu diam tellus. Sed feugiat, risus ut porta
                             iaculis
@@ -67,7 +87,8 @@
                         </p>
                         <br>
                         <p>Nunc elementum purus vel ex iaculis eleifend. Curabitur bibendum odio dui, at placerat
-                            antperer vitae. In hac habitasse platea dictumst. Phasellus nec sodales enim. Mauris malesuada
+                            antperer vitae. In hac habitasse platea dictumst. Phasellus nec sodales enim. Mauris
+                            malesuada
                             nulla
                             hole enim, nec eleifend lacus vulputate ut. Sed eu diam tellus. Sed feugiat, risus ut porta
                             iaculis
@@ -324,7 +345,7 @@
             </div>
         </div>
     </div>
-   
+
 
     <div class="contact_img_background">
         <div class="container">
@@ -346,25 +367,55 @@
                         <div class="div_line-yal">
                             <img class="img-fluid" src="images/line-yal.png" alt="img">
                         </div>
-                        <form>
+                        <form method="POST" action="{{ route('contact.store') }}">
+                            @csrf
                             <div class="mb-3 icon-filed">
-                                <input type="text" class="form-control require" name="first_name" required=""
-                                    placeholder="Enter Name">
+                                <input type="text" class="form-control require" name="name" required=""
+                                    placeholder="Enter Name" value={!! old('name') ? old('name') : null !!}>
                                 <span><i class="fa fa-user"></i></span>
+                                <strong class="text-danger">
+                                    *
+                                    @error('name')
+                                        -
+                                        {{ $message }}
+                                    @enderror
+                                </strong>
                             </div>
                             <div class="mb-3 icon-filed">
                                 <input type="email" class="form-control require" name="email" required=""
-                                    data-valid="email" data-error="Email should be valid." placeholder="Enter Email">
+                                    data-valid="email" data-error="Email should be valid." placeholder="Enter Email"
+                                    value={!! old('email') ? old('email') : null !!}>
                                 <span><i class="fa fa-envelope"></i></span>
+                                <strong class="text-danger">
+                                    *
+                                    @error('email')
+                                        -
+                                        {{ $message }}
+                                    @enderror
+                                </strong>
                             </div>
                             <div class="mb-3 icon-filed">
-                                <input type="text" class="form-control require" name="contact_no"
+                                <input value="{!! old('phone') ? old('phone') : null !!}" type="text" class="form-control require" name="phone"
                                     placeholder="Enter Mob. Number">
                                 <span><i class="fa fa-phone"></i></span>
+                                <strong class="text-danger">
+                                    *
+                                    @error('phone')
+                                        -
+                                        {{ $message }}
+                                    @enderror
+                                </strong>
                             </div>
                             <div class="mb-3 icon-filed">
                                 <textarea rows="3" cols="3" class="form-control require" name="message" placeholder="Enter Message"></textarea>
                                 <span><i class="fas fa-edit"></i></span>
+                                <strong class="text-danger">
+                                    *
+                                    @error('message')
+                                        -
+                                        {{ $message }}
+                                    @enderror
+                                </strong>
                             </div>
                             <button class="submitForm custom-btn">Send Now</button>
                         </form>

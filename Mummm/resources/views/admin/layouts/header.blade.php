@@ -12,6 +12,8 @@
 
     <meta name="description" content="" />
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
@@ -55,8 +57,8 @@
                 <div class="app-brand demo">
                     <a href="index.html" class="app-brand-link">
                         <a href="/admindash">
-                                        <img src="/images/logo.jpg" alt="logo">
-                                    </a>
+                            <img src="/images/logo.jpg" alt="logo">
+                        </a>
                     </a>
 
                     <a href="javascript:void(0);"
@@ -68,35 +70,12 @@
                 <div class="menu-inner-shadow"></div>
 
                 <ul class="menu-inner py-1">
-                    <!-- Dashboard -->
-                   
-
-                    {{-- <li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-layout"></i>
-                            <div data-i18n="Layouts">Categories</div>
-                        </a>
-
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="{{route('category.index')}}" class="menu-link">
-                                    <div data-i18n="Without menu">Show Categories</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="{{route('category.create')}}" class="menu-link">
-                                    <div data-i18n="Without navbar">Create Categories</div>
-                                </a>
-                            </li>
-                            
-                        </ul>
-                    </li> --}}
 
                     <!-- Kitchens -->
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Pages</span>
                     </li>
-                   
+
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-layout"></i>
@@ -117,8 +96,8 @@
 
                         </ul>
                     </li>
-                   <!-- Category -->
-                   <li class="menu-item">
+                    <!-- Category -->
+                    <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-layout"></i>
                             <div data-i18n="Layouts">Products</div>
@@ -138,6 +117,34 @@
 
                         </ul>
                     </li>
+
+                    <!-- Category -->
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-layout"></i>
+                            <div data-i18n="Layouts">Contact Us</div>
+                        </a>
+
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{ route('contactUsRequestIndex') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Request</div>
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+
+
+
+
+
+
+
+
+
+
                     <!-- Components -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
                     <!-- Cards -->
@@ -153,25 +160,25 @@
                                     <div data-i18n="Without menu">Show Orders</div>
                                 </a>
                             </li>
-                           
+
                         </ul>
                     </li>
                     <!-- User interface -->
-                   
+
 
                     <!-- Extended components -->
-                    
 
-                 
+
+
                     <!-- Forms & Tables -->
-               
-                          
-                
+
+
+
                     <!-- Tables -->
-              
+
                     <!-- Misc -->
-                  
-                  
+
+
                 </ul>
             </aside>
             <!-- / Menu -->
@@ -201,7 +208,7 @@
 
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <!-- Place this tag where you want the button to render. -->
-                            
+
 
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -258,11 +265,22 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="auth-login-basic.html">
+                                        <a class="dropdown-item" 
+                                        href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <i class="bx bx-power-off me-2"></i>
                                             <span class="align-middle">Log Out</span>
                                         </a>
                                     </li>
+
+                                  
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+
+
+
                                 </ul>
                             </li>
                             <!--/ User -->
