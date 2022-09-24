@@ -21,7 +21,7 @@ Route::resource('cart', CartController::class);
 Route::resource('users', UserController::class);
 Route::resource('order', OrderController::class);
 
-Route::get('kitchens', function () {
+Route::get('/kitchens', function () {
     return view('pages.kitchens');
 });
 
@@ -43,7 +43,7 @@ Route::post('/contactStore', [ContactUsRequestController::class, 'store'])->name
 
 // For Admin
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () {
-    Route::post('category/{id}', [CategoryController::class, 'update'])->name('updateCategory');
+    Route::post('category/{id}', [KitchenController::class, 'update'])->name('updateCategory');
     Route::post('product/{id}', [ProductController::class, 'update'])->name('updateProduct');
     Route::get('/admindash', [OrderController::class, 'viewOrders'])->name('admindash');
     Route::post('cancel/{id}', [OrderController::class, 'cancel'])->name('cancel');

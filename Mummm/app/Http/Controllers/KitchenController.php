@@ -28,7 +28,7 @@ class KitchenController extends Controller
     public function showCategory()
     {
         $categories = Kitchen::all();
-        $popular_products = Product::inRandomOrder()->Limit(3)->get();
+        $popular_products = Product::inRandomOrder()->Limit(6)->get();
 
         return view('pages.home', compact('categories', 'popular_products'));
     }

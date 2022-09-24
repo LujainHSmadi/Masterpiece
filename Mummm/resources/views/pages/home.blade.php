@@ -194,29 +194,16 @@
                                     <div class="custom-tabs-prdt">
                                         <div class="product-thumbnail">
                                             <a href="javascript:;">
-                                                <img src="images/product/pc23.png" alt="img">
+                                                <img src="{{ url('public/Productimages/' . $item->image) }}" alt="img" width="150px" height="300px">
                                             </a>
                                         </div>
                                         <div class="product-body">
                                             <h5 class="product-title">
                                                 <a href="product-single.html" title="Beef">{{ $item->name }}</a>
                                             </h5>
-                                            <ul class="star-review">
-                                                <li> <a href="javascript:;"><i class="fa fa-star"
-                                                            aria-hidden="true"></i></a> </li>
-                                                <li> <a href="javascript:;"><i class="fa fa-star"
-                                                            aria-hidden="true"></i></a> </li>
-                                                <li> <a href="javascript:;"><i class="fa fa-star"
-                                                            aria-hidden="true"></i></a> </li>
-                                                <li> <a href="javascript:;"><i class="fa fa-star"
-                                                            aria-hidden="true"></i></a> </li>
-                                                <li> <a href="javascript:;"><i class="fa fa-star"
-                                                            aria-hidden="true"></i></a> </li>
-                                            </ul>
-                                            <span class="product-price">3,500$ <span>4,600$</span> </span>
-                                            <p class="product-text">Lorem Ipsum is simply dummy text of the printing and
-                                                typesetting
-                                                industry.</p>
+                                           
+                                            <span class="product-price">{{ $item->price }} JOD </span>
+                                            <p class="product-text">{{ $item->description }}</p>
                                             <form action="{{ route('cart.store') }}" method="post">
                                                 @csrf
 
