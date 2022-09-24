@@ -20,11 +20,6 @@
 
                 <x-jet-section-border />
             @endif
-
-
-          
-
-          
         </div>
     </div>
 </x-app-layout>
