@@ -108,7 +108,7 @@
                                     <div class="custom-tabs-prdt">
                                         <div class="product-thumbnail">
                                             <a href={{ route('product.show', $item->id) }}>
-                                                <img src={{ url('public/Productimages/' . $item->image) }} alt="img" >
+                                                <img src={{ url('public/Productimages/' . $item->image) }} alt="img" width='150px' height='300px'>
                                             </a>
                                         </div>
                                         <div class="product-body">
@@ -128,7 +128,7 @@
                                                 <li> <a href="javascript:;"><i class="fa fa-star"
                                                             aria-hidden="true"></i></a> </li>
                                             </ul>
-                                            <span class="product-price">{{ $item->price }} <span>4,600$</span> </span>
+                                            <span class="product-price">{{ $item->price }}  </span>
                                             <p class="product-text">{{ $item->description }}</p>
 
                                             <form action="{{ route('cart.store') }}" method="post">
